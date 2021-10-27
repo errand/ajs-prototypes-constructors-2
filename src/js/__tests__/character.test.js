@@ -1,21 +1,33 @@
 import Character from '../Character';
 
 test('Check Name errors', () => {
-  expect(() => {
-    return new Character(32, 'Fairy');
-  }).toThrow();
+  expect(() => new Character(32, 'Fairy')).toThrow();
 });
 
 test('Check Type;', () => {
-  expect(() => {
-    return new Character('Diablo', 'Fairy');
-  }).toThrow();
+  expect(() => new Character('Diablo', 'Fairy')).toThrow();
 });
 
 test('Check Type for a string;', () => {
-  expect(() => {
-    return new Character('Diablo', 234);
-  }).toThrow();
+  expect(() => new Character('Diablo', 234)).toThrow();
+});
+
+test('Test Damage', () => {
+  const expected = 92.5;
+
+  const received = new Character('Sandro', 'Bowman');
+  received.damage(10);
+
+  expect(received.health).toEqual(expected);
+});
+
+test('Test Death', () => {
+  const expected = 0;
+
+  const received = new Character('Sandro', 'Bowman');
+  received.health = 0;
+
+  expect(received.health).toEqual(expected);
 });
 
 test('Test Bowman', () => {
