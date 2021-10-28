@@ -1,4 +1,4 @@
-export default function Character(name, type) {
+function Character(name, type) {
   if (typeof name === 'string' && name.length > 1 && name.length < 11) {
     this.name = name;
   } else {
@@ -41,3 +41,11 @@ export default function Character(name, type) {
     throw new Error('Type must be a string.');
   }
 }
+
+Character.prototype.damage = function (points) {
+  if (this.health >= 0) {
+    this.health -= points * (1 - this.defence / 100);
+  }
+};
+
+export default Character;
