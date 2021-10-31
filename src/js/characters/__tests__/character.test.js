@@ -21,7 +21,7 @@ test('Check Type for a string;', () => {
 test('Test Damage', () => {
   const expected = 92.5;
 
-  const received = new Character('Sandro', 'Bowman');
+  const received = new Bowman('Sandro', 'Bowman');
   received.damage(10);
 
   expect(received.health).toEqual(expected);
@@ -30,7 +30,7 @@ test('Test Damage', () => {
 test('Test Levelup', () => {
   const expected = 30;
 
-  const received = new Character('Sandro', 'Bowman');
+  const received = new Bowman('Sandro', 'Bowman');
   received.levelUp();
 
   expect(received.defence).toEqual(expected);
